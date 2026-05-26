@@ -65,7 +65,7 @@ export async function POST(req: Request) {
       .set({ scores: courseScoreSum, commentCount: totalComments, updatedAt: new Date() })
       .where(eq(courses.id, comment.courseId!));
 
-    revalidateCoursePublicData(comment.courseId!);
+    await revalidateCoursePublicData(comment.courseId!);
 
     return okResponse(null);
   });

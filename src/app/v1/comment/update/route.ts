@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     // Recalculate course group and course scores
     await recalculateScores(comment.courseGroupId!, comment.courseId!);
 
-    revalidateCoursePublicData(comment.courseId!);
+    await revalidateCoursePublicData(comment.courseId!);
 
     return okResponse(null);
   });

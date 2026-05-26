@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       .set({ isCovered: !!status, updatedAt: new Date() })
       .where(eq(comments.id, comment.id));
 
-    revalidateCoursePublicData(comment.courseId!);
+    await revalidateCoursePublicData(comment.courseId!);
 
     return okResponse({});
   });

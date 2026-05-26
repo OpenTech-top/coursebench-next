@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
     await db.update(comments).set({ isFold: !!status, updatedAt: new Date() }).where(eq(comments.id, comment.id));
 
-    revalidateCoursePublicData(comment.courseId!);
+    await revalidateCoursePublicData(comment.courseId!);
 
     return okResponse({});
   });

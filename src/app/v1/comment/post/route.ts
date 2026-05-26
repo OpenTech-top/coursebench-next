@@ -125,7 +125,7 @@ export async function POST(req: Request) {
       await db.update(users).set({ hasPostedComments: true }).where(eq(users.id, userId));
     }
 
-    revalidateCoursePublicData(cg.courseId!);
+    await revalidateCoursePublicData(cg.courseId!);
     if (user && !user.hasPostedComments && user.invitedByUserId) {
       revalidateRanklistPublicData();
     }

@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       revalidateRanklistPublicData();
     }
 
-    revalidateCoursePublicData(comment.courseId!);
+    await revalidateCoursePublicData(comment.courseId!);
 
     return okResponse(null);
   });

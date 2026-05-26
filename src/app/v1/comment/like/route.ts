@@ -67,7 +67,7 @@ export async function POST(req: Request) {
           dislike: (comment.dislike ?? 0) + dislikeDelta,
         })
         .where(eq(comments.id, commentId));
-      revalidateCoursePublicData(comment.courseId!);
+      await revalidateCoursePublicData(comment.courseId!);
     }
 
     return okResponse({});
